@@ -17,3 +17,9 @@
 ```
 docker logs flask_api_test
 ```
+
+
+## to test the API
+
+go to browser and test localhost:5000 and see the logs of docker to check the http requests
+
