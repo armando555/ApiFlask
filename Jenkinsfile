@@ -14,14 +14,19 @@ node {
         app = docker.build("armando555/apiflask")
     }
 
-    stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+    stage('Run container'){
+        steps {
+          script {			
+           bat "docker run -d -p 5000:5000 --name flask_api_test armando555/apiflask"
         }
+      }
+    }
+
+    stage('Finish') {
+        steps {
+          script {			
+           bat "echo finish pipeline"
+        }
+      }
     }
 }
