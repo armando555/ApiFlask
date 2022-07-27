@@ -13,13 +13,11 @@ node {
 
         app = docker.build("armando555/apiflask")
     }
-    
+
     stage('Finish') {
-        steps {
           script {			
            bat "echo finish pipeline"
         }
-      }
     }
 
     stage('Run container'){
