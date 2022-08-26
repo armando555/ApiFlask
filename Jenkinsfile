@@ -16,13 +16,13 @@ node {
 
     stage('Finish') {
           script {			
-           bat "echo finish pipeline"
+           sh "echo finish pipeline"
         }
     }
 
     stage('Run container'){
           script {			
-           bat "docker run -d -p 5000:5000 --name flask_api_test armando555/apiflask"
+           sh "docker run -d -p 5000:5000 --name flask_api_test armando555/apiflask"
         }
     }
 
