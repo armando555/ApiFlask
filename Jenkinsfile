@@ -16,7 +16,7 @@ node {
 
     stage('Finish') {
           script {			
-           sh "echo finish pipeline"
+           sh "docker stop flask_api_test && docker rm flask_api_test "
         }
     }
 
