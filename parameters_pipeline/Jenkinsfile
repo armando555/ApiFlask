@@ -24,9 +24,9 @@ pipeline {
     }
     environment {
         ENVIRONMENT = "${environment}"
-        DATABASE = "APP_${environment}"
+        DATABASE = "${engine_db}"
         STRING_PARAM = "${string_param}"
-        BOOL_PARAM = ""
+        BOOL_PARAM = "${boolean_param}"
         HOST_DB = "127.0.0.1"
         PORT_DB = "3306"
         USB_DB = "root"
@@ -65,6 +65,12 @@ pipeline {
                         }
                     }
                   }
+              }
+              script{
+                sh 'This is the boolean param ${BOOLEAN_PARAM}'
+                sh 'This is the string param ${STRING_PARAM}'
+                sh 'This is the environment selected param ${ENVIRONMENT}'
+                sh 'This is the database selected param ${DATABASE}'
               }
             }
 
