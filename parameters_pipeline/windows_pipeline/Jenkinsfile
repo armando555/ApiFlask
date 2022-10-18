@@ -1,0 +1,79 @@
+pipeline {
+    agent any
+    parameters{
+        choice(
+            name: 'environment',
+            choices: ['test', 'prod'],
+            description: 'Passing the Environment'
+        )
+        choice(
+            name: 'engine_db',
+            choices: ['mariadb_local', 'mariadb_other_server'],
+            description: 'Select the option for the database engine'
+        )
+        string(
+            defaultValue: 'scriptcrunch',
+            name: 'string_param',
+            trim: true
+        )
+        booleanParam(
+            defaultValue: true,
+            description: '',
+            name: 'boolean_param'
+        )
+    }
+    environment {
+        ENVIRONMENT = "${environment}"
+        DATABASE = "${engine_db}"
+        STRING_PARAM = "${string_param}"
+        BOOL_PARAM = "${boolean_param}"
+        HOST_DB = "127.0.0.1"
+        PORT_DB = "3306"
+        USB_DB = "root"
+        PASSWORD_DB = "1234"
+        BD_ENGINE= "${engine_db}"
+    }
+
+    stages{
+
+        stage('Select environment and echo'){
+            environment {
+                    PORT = "4443"
+                    PORT_NGINX = "80"
+            }
+            steps {
+              // here we are using the environment variable called "ENVIRONMENT" to set the different ports to use with if sentence
+              script {
+                  if(env.ENVIRONMENT == 'prod'){
+                      PORT = "4443"
+                      PORT_NGINX = "80"
+                      script{
+                        bat 'echo I am in the first part of the if sentece'
+                      }
+                  }else{
+                    if(env.ENVIRONMENT == 'test'){
+                        PORT = "6443"
+                        PORT_NGINX = "82"
+                        script{
+                            bat 'echo I am in the second part of the if sentece'
+                        }
+                    }else{
+                        PORT = "7443"
+                        PORT_NGINX = "83"
+                        script{
+                            bat 'echo I am in the last part of the if sentece'
+                        }
+                    }
+                  }
+              }
+              script{
+                bat 'echo This is the boolean param ${BOOLEAN_PARAM}'
+                bat 'echo This is the string param ${STRING_PARAM}'
+                bat 'echo This is the environment selected param ${ENVIRONMENT}'
+                bat 'echo This is the database selected param ${DATABASE}'
+              }
+            }
+
+        }
+    }
+}
