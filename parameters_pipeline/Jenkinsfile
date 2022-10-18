@@ -37,6 +37,10 @@ pipeline {
     stages{
 
         stage('Select environment and echo'){
+            environment {
+                    PORT = "4443"
+                    PORT_NGINX = "80"
+            }
             steps {
               // here we are using the environment variable called "ENVIRONMENT" to set the different ports to use with if sentence
               script {
