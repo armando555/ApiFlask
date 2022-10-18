@@ -67,10 +67,10 @@ pipeline {
                   }
               }
               script{
-                bat 'echo This is the boolean param $environment'
-                bat 'echo This is the string param $string_param'
-                bat 'echo This is the environment selected param $environment'
-                bat 'echo This is the database selected param $engine_db'
+                bat "echo This is the boolean param ${environment}"
+                bat "echo This is the string param ${string_param}"
+                bat "echo This is the environment selected param ${environment}"
+                bat "echo This is the database selected param ${engine_db}"
               }
             }
 
