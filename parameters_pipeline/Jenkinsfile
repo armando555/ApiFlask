@@ -67,10 +67,10 @@ pipeline {
                   }
               }
               script{
-                sh 'This is the boolean param ${BOOLEAN_PARAM}'
-                sh 'This is the string param ${STRING_PARAM}'
-                sh 'This is the environment selected param ${ENVIRONMENT}'
-                sh 'This is the database selected param ${DATABASE}'
+                sh 'echo This is the boolean param ${BOOLEAN_PARAM}'
+                sh 'echo This is the string param ${STRING_PARAM}'
+                sh 'echo This is the environment selected param ${ENVIRONMENT}'
+                sh 'echo This is the database selected param ${DATABASE}'
               }
             }
 
