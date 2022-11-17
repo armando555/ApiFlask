@@ -1,0 +1,11 @@
+server {
+         listen 80;
+         listen [::]:80;
+         root /var/www/html/react/;
+         index index.html index.htm;
+         # MODIFY SERVER_NAME EXAMPLE
+         server_name react.ariosg55-tk.tk;
+         location / {
+              try_files $uri $uri/ =404;
+         }
+}
