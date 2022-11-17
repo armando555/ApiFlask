@@ -1,0 +1,12 @@
+version: "3"
+services:
+  web:
+    build: .
+    restart: always
+    container_name: api-app
+    ports:
+      - "8080:5000"
+    volumes:
+      - web_data:/usr/src/app
+volumes:
+  web_data:
