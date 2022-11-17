@@ -151,4 +151,14 @@ sudo cp -r /home/admin/build/* /var/www/html/react/
 sudo chown -R www-data:www-data /var/www/html/react
 ```
 
+# SSL section
+Now we have to install certbot
+```
+sudo apt install certbot python3-certbot-nginx
+```
+and now we need to run this command to generate the ssl certificate
+## remember that if you are using this guide you have to change the server name of the nginx config files
+```
+sudo certbot --nginx -d ariosg55-tk.tk -d www.ariosg55-tk.tk -d react.ariosg55-tk.tk
+```
 
