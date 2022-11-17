@@ -157,7 +157,12 @@ Now we have to install certbot
 sudo apt install certbot python3-certbot-nginx
 ```
 and now we need to run this command to generate the ssl certificate
-## remember that if you are using this guide you have to change the server name of the nginx config files
+## remember that if you are using this guide you have to change the server name of the nginx config files. 
+ALSO you have to create a subdomain for you front end in react in my case I was using Freenom.com. So I made it adding this record to the dns
+```
+Name                  Type     TTL      Target
+react.ariosg55-tk.tk  CNAME   3600  ariosg55-tk.tk
+```
 ```
 sudo certbot --nginx -d ariosg55-tk.tk -d www.ariosg55-tk.tk -d react.ariosg55-tk.tk
 ```
