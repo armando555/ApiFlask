@@ -29,7 +29,7 @@ go to browser and test localhost:5000 and see the logs of docker to check the ht
 java -jar agent.jar -jnlpUrl http://localhost:8080/computer/localmachine/jenkins-agent.jnlp -secret 581d7fa35d42b58c5967faaefab762987879785fbb01b28e03acaf8e731b5d5c -workDir "C:\Users\armando.riosg\jenkins_node_local"
 ```
 
-# Nginx steps
+# Nginx steps THESE STEPS IS FOR THE DEPLOYMENT WITH NGINX. IGNORE THESE STEPS IF YOU ARE FOLLOWING THE GUIDE FOR JENKINS
 first we have to install nginx
 ```
 sudo apt install nginx
