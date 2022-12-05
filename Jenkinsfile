@@ -13,7 +13,6 @@ node {
        script{
         sh "docker build -t armando555/apiflask ."
        }
-        app = docker.build("armando555/apiflask")
     }
 
     stage('Finish') {
