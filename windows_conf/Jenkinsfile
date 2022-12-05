@@ -10,9 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-        script{
-           sh "docker build -t armando555/apiflask ."
-        }
+        app = docker.build("armando555/apiflask")
         
     }
 
